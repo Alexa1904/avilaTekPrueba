@@ -22,7 +22,15 @@ module.exports=buildSchema(`
             address:String!
             phone:Int
             createdProducts:[Product!]
+            votedProducts:[Product!]
         }
+
+        type AuthData{
+            userId: ID!
+            token: String!
+            tokenExpiration: Int!
+        }
+
 
         input ProductInput {
             name: String!
@@ -43,11 +51,14 @@ module.exports=buildSchema(`
 
         type RootQuery{
             products: [Product!]!
+            founders: [Founder!]!
+            login(email:String!, password:String!): AuthData!
         }
 
         type RootMutation{
             createProduct(productInput: ProductInput): Product
             createFounder(founderInput:FounderInput): Founder
+
         }
 
         schema{

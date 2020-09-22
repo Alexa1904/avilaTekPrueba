@@ -5,10 +5,11 @@ const graphqlHttp = require('express-graphql').graphqlHTTP;
 const app = express();
 const graphQlSchema = require('./graphql/schema/index');
 const graphQlResolvers = require('./graphql/resolvers/index');
+const isAuth = require('./middleware/is-Auth');
 
 app.use(bodyParser.json());
 
-
+app.use(isAuth);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 

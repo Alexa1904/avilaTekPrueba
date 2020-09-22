@@ -28,6 +28,12 @@ const founderSchema = new Schema({
             type: Schema.Types.ObjectId,
             ref:'Product'
         }
+    ],
+    votedProducts:[
+        {
+            type: Schema.Types.ObjectId,
+            ref:'Product'
+        }
     ]
 });
 
