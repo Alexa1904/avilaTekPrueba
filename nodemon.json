@@ -1,0 +1,7 @@
+{
+    "env":{
+        "MONGO_USER":"ReichelLarez",
+        "MONGO_PASSWORD":"Clifford2243",
+        "MONGO_DB": "avilaTekPrueba"
+    }
+}
