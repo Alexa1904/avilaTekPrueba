@@ -19,6 +19,10 @@ const productSchema = new Schema({
         required:true
     },
     votes:Number,
+    founder:{
+        type: Schema.Types.ObjectId,
+        ref:'Founder'
+    }
 
 });
 

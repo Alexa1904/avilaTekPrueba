@@ -1,38 +1,21 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const Product = require('./models/products');
-const {buildSchema} = require('graphql')
 const graphqlHttp = require('express-graphql').graphqlHTTP;
-
 const app = express();
+const graphQlSchema = require('./graphql/schema/index');
+const graphQlResolvers = require('./graphql/resolvers/index');
+
 app.use(bodyParser.json());
 
+
+
+app.use(bodyParser.urlencoded({ extended: true }));
+
+
 app.use('/graphql', graphqlHttp({
-    schema: buildSchema(`
-
-        type RootQuery{
-            products: [String!]!
-        }
-
-        type RootMutation{
-            createProduct(name: String): String
-        }
-
-        schema{
-            query: RootQuery
-            mutation: RootMutation
-        }
-    `),
-    rootValue:{
-        products:()=>{
-           return['product1','product2','product3']; 
-        },
-        createProduct:(args)=>{
-            const productName = args.name;
-            return productName;
-        }
-    },
+    schema:graphQlSchema ,
+    rootValue:graphQlResolvers,
     graphiql:true
 }));
 
@@ -40,8 +23,13 @@ app.get('/', (req,res,next)=>{
     res.send('Hello World')
 })
 
+mongoose
 
-mongoose.connect(`mongodb+srv://ReichelLarez:${process.env.MONGO_PASSWORD}@avilatekprueba.vsq3l.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`)
+
+mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@avilatekprueba.vsq3l.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`, {
+    useUnifiedTopology: true,
+    useNewUrlParser: true 
+})
 .then(()=>{
     app.listen(3000);
 }).catch(err=>{
