@@ -1,7 +1,30 @@
 #logo{
-    width: 100%;
+    width: 80%;
 }
 
-.margins{
-    
+.shadow-box{
+    margin-top: 1em;
+    border-radius: 10px;
+
+}
+
+.options{
+    border:none;
+    border-radius: 1.5rem;
+    padding-right: 1em;
+    padding-left: 1em;
+}
+
+#green-button{
+    background-color: rgb(112, 173, 71);
+    color:white
+}
+
+.padding0{
+    padding-right: 0;
+}
+
+#avila{
+    color: rgb(112, 173, 71);;
+    font-size: larger;
 }
