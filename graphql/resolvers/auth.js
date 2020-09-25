@@ -61,5 +61,20 @@ module.exports= {
             expiresIn: '1h'
         });    
         return{userId: await user.id, token: token, tokenExpiration:1}
+        },
+
+     user: async ({id})=>{
+         const user = await Founder.findById(id)
+         return {
+            ...user._doc, 
+            _id: user.id, 
+            createdProducts: products.bind(this, user._doc.createdProducts), 
+            votedProducts:products.bind(this, user._doc.votedProducts)
         }
+     },
+     
+     getType: async ({id})=>{
+        const user = await Founder.findById(id)
+        return user._doc.type
+     }
 }

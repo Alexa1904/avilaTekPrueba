@@ -1,0 +1,33 @@
+.img{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.dayProduct{
+    height: 100%;
+    position: fixed;
+    margin-left: 1em;
+    border-radius: 10px;
+    background: #70AD47;
+    color:white
+}
+
+.product-box{
+    cursor: pointer;
+}
+
+.vote-btn{
+    border-radius: 10px;
+    background: rgb(112, 173, 71);
+    color:white;
+    border:none;
+    padding: 2%;
+}
+
+.title{
+    padding-bottom: 0;
+}
+
+.day-img{
+    width: 100%;
+}

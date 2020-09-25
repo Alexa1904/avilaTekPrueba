@@ -1,0 +1,20 @@
+.addP{
+    background:rgba(197, 223, 179, 0.5);
+    border-top-left-radius: 10% 50%;
+    border-bottom-left-radius: 10% 50%;
+    border-bottom-right-radius:10% 50%;
+    border-top-right-radius: 10% 50%;
+}
+
+.add{
+    float: right;
+    margin-top: 10%;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    background: #aaaaaa;
+    color: #fff;
+    font-weight: 600;
+    width: 50%;
+    cursor: pointer;
+}

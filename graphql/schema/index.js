@@ -9,7 +9,7 @@ module.exports=buildSchema(`
             description: String!
             releaseDate: String!
             link: String!
-            vote: Int
+            votes: Int
             founder:Founder!
         }
 
@@ -37,7 +37,7 @@ module.exports=buildSchema(`
             description: String!
             releaseDate: String!
             link: String!
-            vote: Int
+            votes: Int
         }
 
         input FounderInput{
@@ -46,19 +46,23 @@ module.exports=buildSchema(`
             username:String!
             type:Int!
             address:String!
-            phone:Int
+            phone:String!
         }
 
         type RootQuery{
             products: [Product!]!
+            product(id:String!): Product!
+            user(id:String!): Founder!
             founders: [Founder!]!
+            getType(id:String!):Int
             login(email:String!, password:String!): AuthData!
+            productDay:Product!
         }
 
         type RootMutation{
             createProduct(productInput: ProductInput): Product
             createFounder(founderInput:FounderInput): Founder
-
+            voting(id:String!):Product
         }
 
         schema{
