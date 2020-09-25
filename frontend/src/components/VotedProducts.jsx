@@ -1,21 +1,16 @@
-import React, {Component} from 'react'
-import './styles/VotedProducts.css'
+import React, { Component } from "react";
+import "./styles/VotedProducts.css";
 
+export default class VotedProducts extends Component {
+  constructor(...props) {
+    super(...props);
 
-export default class VotedProducts extends Component{
-    constructor(...props){
-        super(...props)
+    this.state = {
+      id: String,
+    };
+  }
 
-        this.state={
-            id:String
-        }
-    }
-
-    render(){
-        return(
-            <div>
-                Aqui van los productos
-            </div>
-        )
-    }
+  render() {
+    return <div>Aqui van los productos</div>;
+  }
 }

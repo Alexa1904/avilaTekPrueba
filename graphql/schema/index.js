@@ -1,7 +1,6 @@
-const {buildSchema} = require('graphql')
+const { buildSchema } = require("graphql");
 
-
-module.exports=buildSchema(`
+module.exports = buildSchema(`
 
         type Product{
             _id:ID!
